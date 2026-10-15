@@ -28,3 +28,32 @@
 @media(max-width:1050px){.site-nav{gap:9px;font-size:11px}.brand-name{font-size:13px}}
 @media(max-width:900px){.header-inner{height:70px}.menu-button{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;background:#fff;border:1px solid var(--line);font-size:12px}.site-nav{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;box-shadow:0 10px 20px #0001;flex-direction:column;align-items:stretch;gap:0;padding:12px 22px}.site-nav.open{display:flex}.site-nav a{padding:10px 0;border-bottom:1px solid var(--line)}.social-pending{align-self:flex-start;margin-top:10px}}
 @media(max-width:760px){.brand-logo{width:50px;height:50px}.news-row{grid-template-columns:1fr;gap:5px}.news-category{justify-self:start}.section-cards{grid-template-columns:1fr}.feature-card{padding:23px;min-height:unset}}
+
+/* KaMPUS structural update: archival card, governance and sponsors */
+.archive-single{display:grid;grid-template-columns:42% 1fr;max-width:850px}
+.archive-single .activity-photo{height:auto;min-height:280px}
+.chair-greeting{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:start;background:#fff;padding:28px;border:1px solid var(--line)}
+.chair-greeting h3,.member-title h3{font-size:22px;margin:0 0 9px}
+.chair-greeting p{font-size:14px;line-height:1.95}
+.chair-name{font-weight:700}
+.chair-portrait{min-height:210px;background:#e6edf4;border:1px solid #cbd8e7;display:grid;place-items:center;color:#607186;text-align:center;font-size:13px}
+.member-title{margin:44px 0 16px}
+.member-table-wrap{overflow-x:auto}
+.member-table{border-collapse:collapse;width:100%;background:#fff;font-size:13px}
+.member-table th,.member-table td{border:1px solid #dfe5eb;padding:10px 14px;text-align:left}
+.member-table th{background:#e9f0f9;color:#214f8f}
+.member-table td:first-child{white-space:nowrap;min-width:85px}
+.sponsor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.sponsor-placeholder{border:1px solid var(--line);background:#f8fafc;aspect-ratio:2.6;display:grid;place-items:center;font-size:12px;color:#8a98a8}
+.sponsor-link{border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;min-height:100px;padding:13px}
+.sponsor-link img{display:block;max-width:100%;max-height:76px;object-fit:contain}
+.footer-main{width:min(calc(100% - 48px),var(--max));margin:auto;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{display:flex;gap:13px;align-items:center}
+.footer-brand img{border-radius:50%;width:54px;height:54px}
+.footer-brand strong{display:block;font-size:17px}
+.footer-brand span{display:block;font-size:10px;color:#d6e5f7}
+.footer-links{display:flex;gap:20px;font-size:12px}
+.footer-links a:hover{text-decoration:underline}
+.site-footer{background:#1c5598;padding:0}
+.footer-bottom{border-top:1px solid #aec4df;text-align:center;font-size:11px;padding:8px 15px}
+@media(max-width:760px){.archive-single{grid-template-columns:1fr}.archive-single .activity-photo{height:230px;min-height:0}.chair-greeting{grid-template-columns:1fr}.chair-portrait{min-height:160px}.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{width:calc(100% - 36px);flex-direction:column;align-items:start}.footer-brand strong{font-size:14px}}
