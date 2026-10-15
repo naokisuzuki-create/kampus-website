@@ -138,9 +138,14 @@ async function renderSeminarDetail(){
   const notice=document.getElementById("detailAnnouncement");
   if(item.announcement){notice.textContent=String(item.announcement);document.getElementById("detailNarrativeSection").hidden=false;}
   const posters=document.getElementById("detailExtraPoster");
-  if(typeof item.poster_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.poster_path)){
-    const pic=document.createElement("img");pic.src=item.poster_path;pic.alt="セミナーのポスター・プログラム";pic.loading="lazy";posters.appendChild(pic);document.getElementById("detailPosterSection").hidden=false;
-  }
+  [item.poster_path_1,item.poster_path_2].forEach((path,index)=>{
+    if(typeof path!=="string"||!^(\.\/assets\/images\/|https:\/\/).test(path))return;
+    const frame=document.createElement("figure");frame.className="detail-poster-item";
+    const pic=document.createElement("img");pic.src=path;pic.alt=index===0?"開催案内ポスター":"講演プログラム";pic.loading="lazy";
+    const caption=document.createElement("figcaption");caption.textContent=index===0?"開催案内":"プログラム";
+    frame.append(pic,caption);posters.appendChild(frame);
+  });
+  if(posters.childElementCount)document.getElementById("detailPosterSection").hidden=false;
   const actions=document.getElementById("detailActions");
   [["application_url","参加・お申し込み"],["detail_url","開催案内・関連資料"]].forEach(([key,label])=>{
     if(typeof item[key]==="string"&&/^https:\/\//i.test(item[key])){
