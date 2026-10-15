@@ -63,3 +63,10 @@
 .chair-portrait img{display:block;width:100%;height:auto;max-height:290px;object-fit:cover;object-position:top center}
 .footer-brand .footer-wordmark{display:block;width:min(370px,100%);height:auto;max-height:none;border-radius:0;object-fit:contain}
 @media(max-width:760px){.footer-brand .footer-wordmark{width:min(300px,100%)}.chair-portrait img{max-width:220px}}
+
+/* Sponsor banners: enlarged responsive layout (2026-10-15) */
+.sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sponsor-link{min-height:128px;padding:14px}
+.sponsor-link img{max-width:100%;max-height:100px;object-fit:contain}
+.sponsor-placeholder{min-height:128px;aspect-ratio:auto}
+@media(max-width:760px){.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sponsor-link{min-height:104px;padding:10px}.sponsor-link img{max-height:84px}}
