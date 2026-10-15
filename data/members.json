@@ -1,0 +1,114 @@
+[
+  {
+    "sort_order": 1,
+    "role": "会長",
+    "name": "峰松 佑輔",
+    "affiliation": "大阪大学医学部附属病院　臨床工学室",
+    "published": true
+  },
+  {
+    "sort_order": 2,
+    "role": "幹事",
+    "name": "石原 健志",
+    "affiliation": "大阪赤十字病院　臨床工学技術課",
+    "published": true
+  },
+  {
+    "sort_order": 3,
+    "role": "幹事",
+    "name": "小川 浩司",
+    "affiliation": "国立循環器病研究センター　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 4,
+    "role": "幹事",
+    "name": "下村 太郎",
+    "affiliation": "大阪赤十字病院　臨床工学技術課",
+    "published": true
+  },
+  {
+    "sort_order": 5,
+    "role": "幹事",
+    "name": "鈴木 尚紀",
+    "affiliation": "桃仁会病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 6,
+    "role": "幹事",
+    "name": "竹田 圭",
+    "affiliation": "近畿大学奈良病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 7,
+    "role": "幹事",
+    "name": "岡﨑 哲也",
+    "affiliation": "京都岡本記念病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 8,
+    "role": "幹事",
+    "name": "中村 充輝",
+    "affiliation": "大阪赤十字病院　臨床工学技術課",
+    "published": true
+  },
+  {
+    "sort_order": 9,
+    "role": "幹事",
+    "name": "人見 泰正",
+    "affiliation": "桃仁会病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 10,
+    "role": "幹事",
+    "name": "藤堂 敦",
+    "affiliation": "近畿大学病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 11,
+    "role": "幹事",
+    "name": "花岡 吾子",
+    "affiliation": "大阪公立大学医学部附属病院　臨床工学室",
+    "published": true
+  },
+  {
+    "sort_order": 12,
+    "role": "幹事",
+    "name": "丸宮 和也",
+    "affiliation": "大阪医療センター　臨床工学室",
+    "published": true
+  },
+  {
+    "sort_order": 13,
+    "role": "幹事",
+    "name": "三宅 琢也",
+    "affiliation": "滋賀医科大学医学部附属病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 14,
+    "role": "事務局長",
+    "name": "鈴木 尚紀",
+    "affiliation": "桃仁会病院　臨床工学部",
+    "published": true
+  },
+  {
+    "sort_order": 15,
+    "role": "監査役",
+    "name": "石原 健志",
+    "affiliation": "大阪赤十字病院　臨床工学技術課",
+    "published": true
+  },
+  {
+    "sort_order": 16,
+    "role": "財務委員",
+    "name": "下村 太郎",
+    "affiliation": "大阪赤十字病院　臨床工学技術課",
+    "published": true
+  }
+]
