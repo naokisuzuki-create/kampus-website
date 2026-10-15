@@ -41,6 +41,12 @@ async function loadPublicRows(type){
     return await response.json();
   }
 }
+function seminarCardImage(item){
+ const explicit=String(item.image_path||"").trim();
+ if(/^(\.\/assets\/images\/|https:\/\/)/.test(explicit))return explicit;
+ const id=String(item.event_id||"").trim();
+ return /^[A-Za-z0-9_-]+$/.test(id)?"./assets/images/seminars/"+id+"-card.png":"";
+}
 const isPublished=x=>x.published===true||String(x.published).toUpperCase()==="TRUE";
 function compareSort(a,b){return Number(a.sort_order||0)-Number(b.sort_order||0);}
 async function initializePublicData(){
@@ -91,8 +97,8 @@ async function renderKampusSeminars(){
       const eventId=String(item.event_id||"").trim();const detailLink=eventId?"./seminar.html?id="+encodeURIComponent(eventId):"";
       if(detailLink){card.setAttribute("tabindex","0");card.setAttribute("role","link");card.setAttribute("aria-label",String(item.title||"セミナー")+"の詳細を見る");card.addEventListener("click",e=>{if(!e.target.closest("a"))location.href=detailLink;});card.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.target.closest("a"))location.href=detailLink;});}
       const media=document.createElement("div");media.className="seminar-media";
-      if(typeof item.image_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.image_path)){
-        const img=document.createElement("img");img.src=item.image_path;img.alt=String(item.title||"セミナー")+" の案内画像";img.loading="lazy";media.appendChild(img);
+      if(seminarCardImage(item)){
+        const img=document.createElement("img");img.src=seminarCardImage(item);img.alt=String(item.title||"セミナー")+" の案内画像";img.loading="lazy";img.onerror=()=>{media.replaceChildren();const p=document.createElement("div");p.className="seminar-media-placeholder";p.textContent="セミナーの案内画像を準備中です";media.appendChild(p);};media.appendChild(img);
       }else{const placeholder=document.createElement("div");placeholder.className="seminar-media-placeholder";placeholder.textContent="セミナーの案内画像を準備中です";media.appendChild(placeholder);}
       const body=document.createElement("div");body.className="seminar-body";
       const kicker=document.createElement("p");kicker.className="card-kicker";kicker.textContent="SEMINAR INFORMATION";body.appendChild(kicker);
@@ -133,7 +139,7 @@ async function renderSeminarDetail(){
   addDetailField(fields,"講演内容",item.lectures);
   const poster=document.getElementById("detailPoster");
   if(typeof item.image_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.image_path)){
-    const img=document.createElement("img");img.src=item.image_path;img.alt=String(item.title||"セミナー")+"の開催案内";poster.appendChild(img);
+    const img=document.createElement("img");img.src=seminarCardImage(item);img.alt=String(item.title||"セミナー")+"の開催案内";img.onerror=()=>{poster.textContent="開催案内画像は準備中です。";};poster.appendChild(img);
   }else poster.textContent="開催案内画像は準備中です。";
   const notice=document.getElementById("detailAnnouncement");
   if(item.announcement){notice.textContent=String(item.announcement);document.getElementById("detailNarrativeSection").hidden=false;}
