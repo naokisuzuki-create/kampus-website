@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");}));
   }
   const year=document.getElementById("year");if(year)year.textContent=String(new Date().getFullYear());
-  initializePublicData().then(renderKampusSeminars);
+  renderKampusSeminars().finally(initializePublicData);
 });
 
 function loadGasFeed(type){
@@ -77,7 +77,7 @@ async function initializePublicData(){
   }
 }
 
-/* Upcoming seminars — fetched after members and sponsors to avoid JSONP callback collision. */
+/* Load the seminar feed first; the legacy GAS endpoint uses one JSONP callback name. */
 async function renderKampusSeminars(){
   const list=document.getElementById("seminarList");if(!list)return;
   try{
