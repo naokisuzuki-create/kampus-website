@@ -7,7 +7,7 @@ const KAMPUS_SPREADSHEET_ID = '1LQVhfnFlMm4Uyn0OtluqpkR39G94ar5Je6VApdpuf-E';
 const KAMPUS_PUBLIC_FIELDS = Object.freeze({
   members: ['sort_order', 'role', 'name', 'affiliation', 'published'],
   sponsors: ['sort_order', 'name', 'image_path', 'url', 'published'],
-  seminars: ['sort_order', 'event_id', 'title', 'event_date', 'event_time', 'venue', 'organizer', 'lectures', 'image_path', 'detail_url', 'application_url', 'published']
+  seminars: ['sort_order', 'event_id', 'title', 'event_date', 'event_time', 'venue', 'organizer', 'lectures', 'image_path', 'detail_url', 'application_url', 'published', 'announcement', 'poster_path']
 });
 const KAMPUS_SHEET_NAMES = Object.freeze({members: '幹事・監事', sponsors: '協賛企業', seminars: 'セミナー'});
 
