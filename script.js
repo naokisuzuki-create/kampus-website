@@ -135,6 +135,12 @@ async function renderSeminarDetail(){
   if(typeof item.image_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.image_path)){
     const img=document.createElement("img");img.src=item.image_path;img.alt=String(item.title||"セミナー")+"の開催案内";poster.appendChild(img);
   }else poster.textContent="開催案内画像は準備中です。";
+  const notice=document.getElementById("detailAnnouncement");
+  if(item.announcement){notice.textContent=String(item.announcement);notice.parentElement.hidden=false;}
+  const posters=document.getElementById("detailExtraPoster");
+  if(typeof item.poster_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.poster_path)){
+    const pic=document.createElement("img");pic.src=item.poster_path;pic.alt="セミナーのポスター・プログラム";pic.loading="lazy";posters.appendChild(pic);posters.parentElement.hidden=false;
+  }
   const actions=document.getElementById("detailActions");
   [["application_url","参加・お申し込み"],["detail_url","開催案内・関連資料"]].forEach(([key,label])=>{
     if(typeof item[key]==="string"&&/^https:\/\//i.test(item[key])){
