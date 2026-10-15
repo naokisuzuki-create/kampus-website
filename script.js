@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");}));
   }
   const year=document.getElementById("year");if(year)year.textContent=String(new Date().getFullYear());
-  initializePublicData();
+  initializePublicData().then(renderKampusSeminars);
 });
 
 function loadGasFeed(type){
@@ -75,4 +75,33 @@ async function initializePublicData(){
       });
     }catch(err){grid.textContent="協賛企業情報は準備中です。";}
   }
+}
+
+/* Upcoming seminars — fetched after members and sponsors to avoid JSONP callback collision. */
+async function renderKampusSeminars(){
+  const list=document.getElementById("seminarList");if(!list)return;
+  try{
+    const all=await loadPublicRows("seminars");
+    list.replaceChildren();
+    const rows=all.filter(isPublished).sort(compareSort);
+    if(!rows.length){const empty=document.createElement("p");empty.className="seminar-empty";empty.textContent="現在、掲載中のセミナー案内はありません。";list.appendChild(empty);return;}
+    rows.forEach(item=>{
+      const card=document.createElement("article");card.className="seminar-card";
+      const media=document.createElement("div");media.className="seminar-media";
+      if(typeof item.image_path==="string"&&/^(\.\/assets\/images\/|https:\/\/)/.test(item.image_path)){
+        const img=document.createElement("img");img.src=item.image_path;img.alt=String(item.title||"セミナー")+" の案内画像";img.loading="lazy";media.appendChild(img);
+      }else{const placeholder=document.createElement("div");placeholder.className="seminar-media-placeholder";placeholder.textContent="セミナーの案内画像を準備中です";media.appendChild(placeholder);}
+      const body=document.createElement("div");body.className="seminar-body";
+      const kicker=document.createElement("p");kicker.className="card-kicker";kicker.textContent="SEMINAR INFORMATION";body.appendChild(kicker);
+      const heading=document.createElement("h3");heading.textContent=String(item.title||"セミナー開催案内");body.appendChild(heading);
+      const dl=document.createElement("dl");dl.className="seminar-fields";
+      const fields=[["開催日時",[item.event_date,item.event_time].filter(Boolean).join(" ")],["開催場所",item.venue],["当番幹事",item.organizer],["講演内容",item.lectures]];
+      fields.forEach(([label,value])=>{if(!value)return;const dt=document.createElement("dt");dt.textContent=label;const dd=document.createElement("dd");dd.textContent=String(value);dl.append(dt,dd);});
+      body.appendChild(dl);
+      const links=document.createElement("div");links.className="seminar-links";
+      [["detail_url","開催案内を見る","secondary"],["application_url","参加申し込み",""]].forEach(([key,label,klass])=>{const url=item[key];if(typeof url!=="string"||!/^https:\/\//i.test(url))return;const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=label;if(klass)a.className=klass;links.appendChild(a);});
+      if(links.childElementCount)body.appendChild(links);
+      card.append(media,body);list.appendChild(card);
+    });
+  }catch(e){list.replaceChildren();const msg=document.createElement("p");msg.className="seminar-empty";msg.textContent="セミナー情報を取得できませんでした。";list.appendChild(msg);console.warn("seminar feed",e);}
 }
