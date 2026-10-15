@@ -57,3 +57,9 @@
 .site-footer{background:#1c5598;padding:0}
 .footer-bottom{border-top:1px solid #aec4df;text-align:center;font-size:11px;padding:8px 15px}
 @media(max-width:760px){.archive-single{grid-template-columns:1fr}.archive-single .activity-photo{height:230px;min-height:0}.chair-greeting{grid-template-columns:1fr}.chair-portrait{min-height:160px}.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{width:calc(100% - 36px);flex-direction:column;align-items:start}.footer-brand strong{font-size:14px}}
+
+/* Portrait and supplied footer wordmark */
+.chair-portrait{display:block;min-height:0;background:transparent;border:0}
+.chair-portrait img{display:block;width:100%;height:auto;max-height:290px;object-fit:cover;object-position:top center}
+.footer-brand .footer-wordmark{display:block;width:min(370px,100%);height:auto;max-height:none;border-radius:0;object-fit:contain}
+@media(max-width:760px){.footer-brand .footer-wordmark{width:min(300px,100%)}.chair-portrait img{max-width:220px}}
