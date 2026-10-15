@@ -1,0 +1,90 @@
+:root{--ink:#24313a;--muted:#67747d;--red:#b72229;--line:#e5e9ea;--soft:#f5f7f7;--max:1120px}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;color:var(--ink);font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.85;background:#fff}a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(calc(100% - 48px),var(--max));margin-inline:auto}.skip{position:absolute;left:-9999px}.skip:focus{left:10px;top:10px;z-index:100;background:#fff;padding:8px}.site-header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 18px #182c3812}.header-inner{height:88px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px}.brand-mark{font-size:24px;font-weight:900;letter-spacing:-.085em;color:#bf151d;line-height:1}.brand-mark span{color:#878b90}.brand-name{font-size:16px;font-weight:700;letter-spacing:.035em;line-height:1.35}.brand-name small{display:block;font-size:9px;font-weight:500;color:var(--muted);letter-spacing:.04em;margin-top:4px}.site-nav{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:650}.site-nav a:hover{color:var(--red)}.menu-button{display:none}.hero{position:relative;min-height:530px;display:flex;align-items:center;overflow:hidden;background:#3a4a50}.hero-photo,.hero-overlay{position:absolute;inset:0}.hero-photo{background-image:url('./assets/images/hero/hero-workshop.jpg');background-position:center 47%;background-size:cover}.hero-overlay{background:linear-gradient(90deg,rgba(23,38,44,.9) 0%,rgba(23,38,44,.7) 42%,rgba(23,38,44,.2) 100%)}.hero-content{position:relative;color:#fff;padding:74px 0 82px}.eyebrow{color:var(--red);font-size:11px;letter-spacing:.19em;font-weight:800;margin:0 0 22px}.eyebrow.light{color:#e6d8d9}.hero h1{font-size:clamp(32px,4vw,52px);line-height:1.55;letter-spacing:.045em;margin:0 0 22px}.hero p:not(.eyebrow){font-size:15px;line-height:2.1}.button{display:inline-flex;align-items:center;justify-content:space-between;gap:42px;margin-top:24px;padding:13px 24px;font-size:13px;font-weight:700;border-radius:3px}.button.white{background:white;color:var(--ink)}.section{padding:96px 0}.muted{background:var(--soft)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:85px;align-items:center}.section h2{font-size:clamp(25px,3vw,36px);line-height:1.55;letter-spacing:.035em;margin:0}.intro-grid p:not(.eyebrow){color:#52616b;font-size:15px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.section-heading .eyebrow{margin-bottom:13px}.section-heading>p{color:var(--muted);font-size:14px;margin:0}.notice{padding:27px 30px;display:flex;gap:22px;align-items:start;background:white;border-left:3px solid var(--red)}.notice h3{font-size:17px;margin:0 0 5px}.notice p{font-size:14px;color:var(--muted);margin:0}.notice-tag{font-size:11px;font-weight:700;color:var(--red);border:1px solid #dfb6b9;padding:3px 10px;white-space:nowrap}.small-note{font-size:12px;color:#7d888e}.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}.activity-card{border:1px solid var(--line);background:#fff;overflow:hidden}.activity-photo{height:260px;background-size:cover;background-position:center;background-color:#e2e6e7}.activity-photo.workshop{background-image:url('./assets/images/gallery/workshop-overview.jpg')}.activity-photo.session{background-image:url('./assets/images/hero/hero-workshop.jpg')}.activity-body{padding:25px 28px 30px}.activity-type{font-size:10px;color:var(--red);font-weight:800;letter-spacing:.15em}.activity-body h3{font-size:19px;margin:8px 0}.activity-body p:last-child{font-size:13px;color:var(--muted);margin:0}.archive-placeholder{margin-top:28px;padding:22px;border:1px dashed #bbc7cd;text-align:center;font-size:13px;color:var(--muted)}.contact-inner{text-align:center}.contact-inner .eyebrow{margin-bottom:12px}.contact-inner>p:not(.eyebrow){font-size:14px;color:var(--muted)}.site-footer{padding:29px 0;background:#24313a;color:#fff}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px}.footer-inner div{display:flex;align-items:center;gap:12px}.footer-inner strong{font-size:21px;letter-spacing:-.04em}.footer-inner span,.footer-inner small{font-size:11px;color:#d3dcdf}.mobile-only{display:none}@media(max-width:760px){.container{width:min(calc(100% - 36px),var(--max))}.header-inner{height:70px}.brand-name{font-size:13px}.brand-name small{font-size:8px}.brand-mark{font-size:21px}.menu-button{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;background:white;border:1px solid var(--line);font-size:12px}.site-nav{display:none;position:absolute;top:70px;left:0;right:0;background:white;box-shadow:0 10px 20px #0001;flex-direction:column;align-items:stretch;gap:0;padding:12px 22px}.site-nav.open{display:flex}.site-nav a{padding:12px 0;border-bottom:1px solid var(--line)}.hero{min-height:470px}.hero-overlay{background:linear-gradient(90deg,rgba(23,38,44,.85),rgba(23,38,44,.37))}.hero-content{padding:63px 0}.hero h1{font-size:33px}.hero p:not(.eyebrow){font-size:13px}.mobile-only{display:initial}.section{padding:68px 0}.intro-grid{grid-template-columns:1fr;gap:24px}.section-heading{display:block}.section-heading>p{margin-top:16px}.activity-grid{grid-template-columns:1fr;gap:22px}.activity-photo{height:215px}.notice{padding:20px;gap:13px;flex-direction:column}.footer-inner{align-items:start;flex-direction:column;gap:5px}}
+/* Official logo */
+.brand-logo{display:block;width:108px;height:58px;object-fit:contain;flex-shrink:0}
+@media(max-width:760px){.brand-logo{width:82px;height:49px}.brand{gap:8px}}
+
+/* KaMPUS structure v2: blue brand, sections and card navigation */
+:root{--red:#c51925;--blue:#4775c0}
+.brand-logo{width:62px;height:62px;object-fit:contain}
+.site-nav{gap:17px;font-size:12px}
+.social-pending{border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:#73808a;font-size:10px;white-space:nowrap}
+.eyebrow{color:var(--blue)}
+.hero{background-color:#253f66}
+.hero-overlay{background:linear-gradient(90deg,rgba(24,42,69,.9),rgba(24,42,69,.52) 60%,rgba(24,42,69,.14))}
+.section.compact{padding-top:64px;padding-bottom:64px}
+.news-list{border-top:1px solid var(--line)}
+.news-row{display:grid;grid-template-columns:90px 110px 1fr;gap:18px;border-bottom:1px solid var(--line);padding:18px 0;font-size:14px;align-items:center}
+.news-date{color:var(--muted);font-size:12px}
+.news-category{color:var(--blue);border:1px solid #bfd0e8;border-radius:3px;font-size:11px;text-align:center;padding:1px 6px}
+.section-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.feature-card{background:#fff;border:1px solid var(--line);padding:32px;min-height:220px}
+.card-kicker,.activity-type{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.12em}
+.feature-card h3{font-size:21px;margin:10px 0}
+.feature-card p{font-size:14px;color:#586773}
+.text-link{display:inline-block;color:#3567ab;font-size:13px;font-weight:700;margin-top:10px}
+.status-note{display:inline-block;font-size:11px;color:#65717b;background:#f0f3f6;padding:4px 10px;margin-top:10px}
+.activity-card{display:block;transition:transform .15s,box-shadow .15s}
+.activity-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #1a34531a}
+@media(max-width:1050px){.site-nav{gap:9px;font-size:11px}.brand-name{font-size:13px}}
+@media(max-width:900px){.header-inner{height:70px}.menu-button{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;background:#fff;border:1px solid var(--line);font-size:12px}.site-nav{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;box-shadow:0 10px 20px #0001;flex-direction:column;align-items:stretch;gap:0;padding:12px 22px}.site-nav.open{display:flex}.site-nav a{padding:10px 0;border-bottom:1px solid var(--line)}.social-pending{align-self:flex-start;margin-top:10px}}
+@media(max-width:760px){.brand-logo{width:50px;height:50px}.news-row{grid-template-columns:1fr;gap:5px}.news-category{justify-self:start}.section-cards{grid-template-columns:1fr}.feature-card{padding:23px;min-height:unset}}
+
+/* KaMPUS structural update: archival card, governance and sponsors */
+.archive-single{display:grid;grid-template-columns:42% 1fr;max-width:850px}
+.archive-single .activity-photo{height:auto;min-height:280px}
+.chair-greeting{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:start;background:#fff;padding:28px;border:1px solid var(--line)}
+.chair-greeting h3,.member-title h3{font-size:22px;margin:0 0 9px}
+.chair-greeting p{font-size:14px;line-height:1.95}
+.chair-name{font-weight:700}
+.chair-portrait{min-height:210px;background:#e6edf4;border:1px solid #cbd8e7;display:grid;place-items:center;color:#607186;text-align:center;font-size:13px}
+.member-title{margin:44px 0 16px}
+.member-table-wrap{overflow-x:auto}
+.member-table{border-collapse:collapse;width:100%;background:#fff;font-size:13px}
+.member-table th,.member-table td{border:1px solid #dfe5eb;padding:10px 14px;text-align:left}
+.member-table th{background:#e9f0f9;color:#214f8f}
+.member-table td:first-child{white-space:nowrap;min-width:85px}
+.sponsor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:28px}
+.sponsor-placeholder{border:1px solid var(--line);background:#f8fafc;aspect-ratio:2.6;display:grid;place-items:center;font-size:12px;color:#8a98a8}
+.sponsor-link{border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;min-height:100px;padding:13px}
+.sponsor-link img{display:block;max-width:100%;max-height:76px;object-fit:contain}
+.footer-main{width:min(calc(100% - 48px),var(--max));margin:auto;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{display:flex;gap:13px;align-items:center}
+.footer-brand img{border-radius:50%;width:54px;height:54px}
+.footer-brand strong{display:block;font-size:17px}
+.footer-brand span{display:block;font-size:10px;color:#d6e5f7}
+.footer-links{display:flex;gap:20px;font-size:12px}
+.footer-links a:hover{text-decoration:underline}
+.site-footer{background:#1c5598;padding:0}
+.footer-bottom{border-top:1px solid #aec4df;text-align:center;font-size:11px;padding:8px 15px}
+@media(max-width:760px){.archive-single{grid-template-columns:1fr}.archive-single .activity-photo{height:230px;min-height:0}.chair-greeting{grid-template-columns:1fr}.chair-portrait{min-height:160px}.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{width:calc(100% - 36px);flex-direction:column;align-items:start}.footer-brand strong{font-size:14px}}
+
+/* Portrait and supplied footer wordmark */
+.chair-portrait{display:block;min-height:0;background:transparent;border:0}
+.chair-portrait img{display:block;width:100%;height:auto;max-height:290px;object-fit:cover;object-position:top center}
+.footer-brand .footer-wordmark{display:block;width:min(370px,100%);height:auto;max-height:none;border-radius:0;object-fit:contain}
+@media(max-width:760px){.footer-brand .footer-wordmark{width:min(300px,100%)}.chair-portrait img{max-width:220px}}
+
+/* Sponsor banners: enlarged responsive layout (2026-10-15) */
+.sponsor-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sponsor-link{min-height:128px;padding:14px}
+.sponsor-link img{max-width:100%;max-height:100px;object-fit:contain}
+.sponsor-placeholder{min-height:128px;aspect-ratio:auto}
+@media(max-width:760px){.sponsor-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sponsor-link{min-height:104px;padding:10px}.sponsor-link img{max-height:84px}}
+
+/* Medical hero — photograph remains an image, words and buttons are real HTML */
+.hero.hero-medical{min-height:640px;background:#f3f6fc;color:#142c5a;isolation:isolate}
+.hero-medical .hero-photo{background-image:url('./assets/images/hero/kampus-hero-bg.png'),url('./assets/images/hero/hero-workshop.jpg');background-position:center center;background-size:cover;background-repeat:no-repeat}
+.hero-medical .hero-overlay{display:none}
+.hero-medical .hero-content{padding:88px 0 100px;color:#132b58}
+.hero-medical .eyebrow.light{color:#293b91;font-size:12px;letter-spacing:.18em;margin-bottom:28px}
+.hero-medical h1{font-size:clamp(38px,4.1vw,68px);line-height:1.47;letter-spacing:.015em;color:#102754;max-width:840px;margin:0 0 25px;font-weight:800}
+.hero-medical .hero-accent{color:#53298a}
+.hero-medical p.hero-lead{font-size:clamp(15px,1.33vw,20px);color:#1c345d;line-height:1.95;font-weight:550;max-width:770px;margin:0}
+.hero-actions{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:32px}
+.hero-medical .hero-actions .button{margin:0;border-radius:6px;font-size:15px;min-width:225px;min-height:65px;padding:15px 24px;gap:22px}
+.hero-primary{background:#333e9b;color:#fff}
+.hero-secondary{background:#fffdfd;color:#23376b;border:1px solid #9da9d2}
+.hero-primary:hover{background:#222f7c}
+.hero-secondary:hover{background:#f3f5ff}
+@media(max-width:1050px){.hero.hero-medical{min-height:530px}.hero-medical .hero-content{padding:65px 0 75px}.hero-medical h1{font-size:clamp(34px,4.5vw,50px);max-width:620px}.hero-medical p.hero-lead{max-width:560px;font-size:15px}}
+@media(max-width:760px){.hero.hero-medical{min-height:0}.hero-medical .hero-photo{background-position:61% center}.hero-medical .hero-content{padding:55px 0 64px}.hero-medical .hero-content:before{content:"";position:absolute;inset:0 -18px;background:linear-gradient(90deg,rgba(247,249,255,.95) 0%,rgba(247,249,255,.88) 64%,rgba(247,249,255,.58) 100%);z-index:-1}.hero-medical .eyebrow.light{font-size:9px;letter-spacing:.08em;margin-bottom:20px}.hero-medical h1{font-size:clamp(31px,7.2vw,45px);line-height:1.45;max-width:100%;margin-bottom:20px}.hero-medical p.hero-lead{font-size:13px;line-height:1.9}.hero-desktop-break{display:none}.hero-actions{gap:10px;margin-top:28px}.hero-medical .hero-actions .button{min-width:0;min-height:50px;font-size:12px;padding:11px 13px;flex:1;gap:6px}}
