@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");}));
   }
   const year=document.getElementById("year");if(year)year.textContent=String(new Date().getFullYear());
+  if(document.getElementById('recordTitle')) return;
   if(document.getElementById('seminarDetail')) renderSeminarDetail().finally(initializePublicData);
   else renderKampusSeminars().finally(initializePublicData);
 });
