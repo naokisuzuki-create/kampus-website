@@ -20,4 +20,5 @@ document.addEventListener("DOMContentLoaded",async()=>{
     if(gallery.childElementCount)document.getElementById("recordPhotosSection").hidden=false;
    }
  }catch(err){title.textContent="開催記録を読み込めませんでした。";console.warn(err);}
+ finally{if(typeof initializePublicData==="function")initializePublicData();}
 });
