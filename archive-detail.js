@@ -17,23 +17,18 @@ document.addEventListener("DOMContentLoaded",async()=>{
    addField("開催回",item.number);
    addField("開催日",item.event_date);
    addField("開催時間",item.event_time);
-   // 第8回はプログラム案の各講演と演者・司会を対応づけて表示する。
-   if(item.event_id==="KAMPUS-008"&&item.lecture_title&&item.speaker){
-     const talks=String(item.lecture_title).split(/\r?\n/).filter(x=>!x.startsWith("【"));
-     const speakers=String(item.speaker).split(/\r?\n/).filter(x=>!x.startsWith("【"));
-     const findLine=prefix=>speakers.find(x=>x.startsWith(prefix))||"";
-     const chairLine=findLine("司会：").replace(/^司会：/,"");
-     const chairs=chairLine.split("／");
-     talks.forEach((talk,i)=>{
-       addField("講演"+(i+1),talk);
-       const speaker=i===0?findLine("講演①："):i===1?findLine("講演②："):findLine("特別講演：");
-       addField("演者・講師",speaker.replace(/^[^：]+：/,""));
-       const chair=i<2?chairs[0]:chairs[1];
-       if(chair)addField("司会",chair.replace(/（講演[^）]*）|（特別講演）/g,"").trim());
-     });
+   const programRows=await fetchArchiveProgram();
+   const sessions=Array.isArray(programRows)?programRows.filter(p=>p.event_id===id&&(p.published===true||String(p.published).toUpperCase()==="TRUE")).sort((a,b)=>Number(a.sort_order)-Number(b.sort_order)):[];
+   if(sessions.length){
+     for(const p of sessions){
+       addField("演題名", (p.session_type?String(p.session_type)+"：":"")+String(p.lecture_title||""));
+       if(p.speaker)addField("演者",String(p.speaker)+(p.affiliation?"（"+p.affiliation+"）":""));
+       if(p.chair)addField("司会",p.chair);
+     }
    }else{
-     addField("プログラム",item.lecture_title||item.theme);
-     addField("講師・演者",item.speaker);
+     // GAS未デプロイ時も既存記録を表示（旧方式）。
+     addField("演題名",item.lecture_title||item.theme);
+     addField("演者",item.speaker);
    }
    addField("会場",item.venue);
    addField("担当幹事",item.organizer);
