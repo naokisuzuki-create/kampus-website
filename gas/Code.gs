@@ -8,10 +8,11 @@ const KAMPUS_SPREADSHEET_ID = '1LQVhfnFlMm4Uyn0OtluqpkR39G94ar5Je6VApdpuf-E';
 const KAMPUS_PUBLIC_FIELDS = Object.freeze({
   members: ['sort_order', 'role', 'name', 'affiliation', 'published'],
   sponsors: ['sort_order', 'name', 'image_path', 'url', 'published'],
+  archive_program: ['event_id','sort_order','session_type','lecture_title','speaker','affiliation','chair','notes','published'],
   archive: ['sort_order','event_id','number','event_date','title','theme','venue','report','photos','published','event_time','lecture_title','speaker','organizer'],
   seminars: ['sort_order', 'event_id', 'title', 'event_date', 'event_time', 'venue', 'organizer', 'lectures', 'image_path', 'detail_url', 'application_url', 'published', 'announcement', 'poster_path_1', 'poster_path_2']
 });
-const KAMPUS_SHEET_NAMES = Object.freeze({members: '幹事・監事', sponsors: '協賛企業', seminars: 'セミナー', archive: '過去の勉強会'});
+const KAMPUS_SHEET_NAMES = Object.freeze({members: '幹事・監事', sponsors: '協賛企業', seminars: 'セミナー', archive: '過去の勉強会', archive_program: '講演プログラム'});
 
 function doGet(e) {
   const kind = String((e && e.parameter && e.parameter.type) || 'members');
@@ -27,7 +28,7 @@ function doGet(e) {
   return ContentService.createTextOutput(payload).setMimeType(ContentService.MimeType.JSON);
 }
 function getPublishedRows_(kind) {
-  const sheet = SpreadsheetApp.openById(kind === 'archive' ? KAMPUS_ARCHIVE_SPREADSHEET_ID : KAMPUS_SPREADSHEET_ID).getSheetByName(KAMPUS_SHEET_NAMES[kind]);
+  const sheet = SpreadsheetApp.openById((kind === 'archive' || kind === 'archive_program') ? KAMPUS_ARCHIVE_SPREADSHEET_ID : KAMPUS_SPREADSHEET_ID).getSheetByName(KAMPUS_SHEET_NAMES[kind]);
   if (!sheet) return [];
   const grid = sheet.getDataRange().getValues();
   if (grid.length < 2) return [];
