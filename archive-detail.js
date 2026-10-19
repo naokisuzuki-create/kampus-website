@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded",async()=>{
    addField("開催時間",item.event_time);
    // 第8回はプログラム案の各講演と演者・司会を対応づけて表示する。
    if(item.event_id==="KAMPUS-008"&&item.lecture_title&&item.speaker){
-     const talks=String(item.lecture_title).split(/\\r?\\n/).filter(x=>!x.startsWith("【"));
-     const speakers=String(item.speaker).split(/\\r?\\n/).filter(x=>!x.startsWith("【"));
+     const talks=String(item.lecture_title).split(/\r?\n/).filter(x=>!x.startsWith("【"));
+     const speakers=String(item.speaker).split(/\r?\n/).filter(x=>!x.startsWith("【"));
      const findLine=prefix=>speakers.find(x=>x.startsWith(prefix))||"";
      const chairLine=findLine("司会：").replace(/^司会：/,"");
      const chairs=chairLine.split("／");
