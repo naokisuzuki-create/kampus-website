@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
    if(!item){title.textContent="開催記録が見つかりません";number.textContent="ARCHIVE";return;}
    title.textContent=item.title;number.textContent=item.number+" / ARCHIVE";
    document.title=item.number+" "+item.title+" | 関西血液浄化研究会";
-   [["開催回",item.number],["開催日",item.event_date],["テーマ",item.theme],["会場",item.venue]].forEach(([label,value])=>{
+   [["開催回",item.number],["開催日",item.event_date],["開催時間",item.event_time],["講演",item.lecture_title||item.theme],["講師",item.speaker],["会場",item.venue],["担当幹事",item.organizer]].forEach(([label,value])=>{
     if(!value)return;const dt=document.createElement("dt"),dd=document.createElement("dd");dt.textContent=label;dd.textContent=value;dl.append(dt,dd);
    });
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
