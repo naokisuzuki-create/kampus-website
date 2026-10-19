@@ -55,7 +55,19 @@ document.addEventListener("DOMContentLoaded",async()=>{
    const photos=Array.isArray(item.photos)?item.photos:String(item.photos||"").split(/\r?\n|,/).map(s=>s.trim()).filter(Boolean);
    if(photos.length){
     const gallery=document.getElementById("recordPhotos");
-    for(const src of photos){if(typeof src!=="string"||!/^\.\/assets\/images\/archive\/[a-zA-Z0-9_./-]+$/.test(src))continue;const image=document.createElement("img");image.src=src;image.loading="lazy";image.alt=item.number+"の活動記録";gallery.appendChild(image);}
+    for(const raw of photos){
+      if(typeof raw!=="string")continue;
+      const src=raw.trim();
+      const local=/^\.\/assets\/images\/archive\/[a-zA-Z0-9_./-]+$/.test(src);
+      const driveId=/^[A-Za-z0-9_-]{20,}$/.test(src);
+      if(!local&&!driveId)continue;
+      const image=document.createElement("img");
+      image.src=driveId?"https://drive.google.com/thumbnail?id="+encodeURIComponent(src)+"&sz=w1600":src;
+      image.loading="lazy";
+      image.alt=item.number+"の活動記録";
+      image.onerror=()=>{image.remove();if(!gallery.childElementCount)document.getElementById("recordPhotosSection").hidden=true;};
+      gallery.appendChild(image);
+    }
     if(gallery.childElementCount)document.getElementById("recordPhotosSection").hidden=false;
    }
  }catch(err){title.textContent="開催記録を読み込めませんでした。";console.warn(err);}
