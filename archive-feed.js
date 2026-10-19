@@ -17,3 +17,18 @@ async function fetchArchiveRecords(){
   return (await r.json()).map(x=>({...x,event_id:x.id,event_date:x.date,published:true,sort_order:Number((x.id||"").split("-").pop())})).sort((a,b)=>Number(b.sort_order)-Number(a.sort_order));
  }
 }
+
+// Fetch one program table after the archive metadata request has completed.
+async function fetchArchiveProgram(){
+ try{
+  return await new Promise((resolve,reject)=>{
+   const tag=document.createElement("script");let done=false;
+   const previous=window.kampusDataCallback;
+   const timer=setTimeout(()=>finish(new Error("program timeout")),8000);
+   function finish(err,rows){if(done)return;done=true;clearTimeout(timer);tag.remove();if(previous===undefined)delete window.kampusDataCallback;else window.kampusDataCallback=previous;err?reject(err):resolve(rows)}
+   window.kampusDataCallback=data=>data&&data.type==="archive_program"&&Array.isArray(data.rows)?finish(null,data.rows):finish(new Error("invalid program response"));
+   tag.onerror=()=>finish(new Error("program request failed"));
+   tag.src=ARCHIVE_API+"?type=archive_program&callback=kampusDataCallback&t="+Date.now();document.head.appendChild(tag);
+  });
+ }catch(err){console.warn("Archive program API unavailable",err);return null;}
+}
