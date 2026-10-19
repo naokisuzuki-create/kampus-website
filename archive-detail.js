@@ -17,21 +17,40 @@ document.addEventListener("DOMContentLoaded",async()=>{
    addField("開催回",item.number);
    addField("開催日",item.event_date);
    addField("開催時間",item.event_time);
-   const programRows=await fetchArchiveProgram();
-   const sessions=Array.isArray(programRows)?programRows.filter(p=>p.event_id===id&&(p.published===true||String(p.published).toUpperCase()==="TRUE")).sort((a,b)=>Number(a.sort_order)-Number(b.sort_order)):[];
-   if(sessions.length){
-     for(const p of sessions){
-       addField("演題名", (p.session_type?String(p.session_type)+"：":"")+String(p.lecture_title||""));
-       if(p.speaker)addField("演者",String(p.speaker)+(p.affiliation?"（"+p.affiliation+"）":""));
-       if(p.chair)addField("司会",p.chair);
-     }
-   }else{
-     // GAS未デプロイ時も既存記録を表示（旧方式）。
-     addField("演題名",item.lecture_title||item.theme);
-     addField("演者",item.speaker);
-   }
    addField("会場",item.venue);
    addField("担当幹事",item.organizer);
+   const programSection=document.getElementById("archiveProgramSection");
+   const programList=document.getElementById("archiveProgramList");
+   const programRows=await fetchArchiveProgram();
+   const sessions=Array.isArray(programRows)
+     ? programRows.filter(p=>p.event_id===id&&(p.published===true||String(p.published).toUpperCase()==="TRUE"))
+       .sort((a,b)=>Number(a.sort_order)-Number(b.sort_order))
+     : [];
+   function renderSession(p,index){
+     const article=document.createElement("section");article.className="archive-program-item";
+     const header=document.createElement("div");header.className="archive-program-header";
+     const type=document.createElement("span");type.className="archive-program-type";
+     type.textContent=String(p.session_type||"講演 "+(index+1));
+     const heading=document.createElement("h3");heading.className="archive-program-title";
+     heading.textContent=String(p.lecture_title||"");
+     header.append(type,heading);article.appendChild(header);
+     const details=document.createElement("dl");details.className="archive-program-people";
+     function addPerson(label,value){
+       if(!value)return;
+       const dt=document.createElement("dt"),dd=document.createElement("dd");
+       dt.textContent=label;dd.textContent=String(value);details.append(dt,dd);
+     }
+     addPerson("演者",String(p.speaker||"")+(p.affiliation?"（"+p.affiliation+"）":""));
+     addPerson("司会",p.chair);
+     if(details.children.length)article.append(details);
+     programList.append(article);
+   }
+   if(sessions.length){
+     sessions.forEach(renderSession);
+   }else if(item.lecture_title||item.theme){
+     renderSession({session_type:"講演",lecture_title:item.lecture_title||item.theme,speaker:item.speaker},0);
+   }
+   programSection.hidden=programList.children.length===0;
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
    const photos=Array.isArray(item.photos)?item.photos:String(item.photos||"").split(/\r?\n|,/).map(s=>s.trim()).filter(Boolean);
    if(photos.length){
