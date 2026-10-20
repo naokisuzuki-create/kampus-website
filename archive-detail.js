@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
      }
      if(!gallery.childElementCount)return false;
      if(gallery.childElementCount===1)gallery.classList.add("archive-photo-grid--single");
+     if(id==="KAMPUS-011")gallery.classList.add("archive-photo-grid--compact");
      host.appendChild(gallery);return true;
    }
    function renderSession(p,index){
