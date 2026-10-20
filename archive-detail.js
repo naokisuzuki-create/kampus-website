@@ -26,6 +26,27 @@ document.addEventListener("DOMContentLoaded",async()=>{
      ? programRows.filter(p=>p.event_id===id&&(p.published===true||String(p.published).toUpperCase()==="TRUE"))
        .sort((a,b)=>Number(a.sort_order)-Number(b.sort_order))
      : [];
+   function photoSources(value){
+     return (Array.isArray(value)?value:String(value||"").split(/\r?\n|,/)).map(x=>String(x).trim()).filter(Boolean);
+   }
+   function appendGallery(host,value){
+     const sources=photoSources(value);
+     if(!sources.length)return false;
+     const gallery=document.createElement("div");gallery.className="archive-photo-grid";
+     for(const src of sources){
+       const local=/^\.\/assets\/images\/archive\/[a-zA-Z0-9_./-]+$/.test(src);
+       const driveId=/^[A-Za-z0-9_-]{20,}$/.test(src);
+       if(!local&&!driveId)continue;
+       const image=document.createElement("img");
+       image.src=driveId?"https://drive.google.com/thumbnail?id="+encodeURIComponent(src)+"&sz=w1600":src;
+       image.alt=item.number+" 講演記録";image.loading="lazy";
+       image.onerror=()=>{image.remove();};
+       gallery.appendChild(image);
+     }
+     if(!gallery.childElementCount)return false;
+     if(gallery.childElementCount===1)gallery.classList.add("archive-photo-grid--single");
+     host.appendChild(gallery);return true;
+   }
    function renderSession(p,index){
      const article=document.createElement("section");article.className="archive-program-item";
      const header=document.createElement("div");header.className="archive-program-header";
@@ -43,9 +64,16 @@ document.addEventListener("DOMContentLoaded",async()=>{
      addPerson("演者",String(p.speaker||"")+(p.affiliation?"（"+p.affiliation+"）":""));
      addPerson("司会",p.chair);
      if(details.children.length)article.append(details);
+     if(p.photos)appendGallery(article,p.photos);
      programList.append(article);
    }
+   const legacyPhotos=photoSources(item.photos);
+   const hasProgramPhotos=sessions.some(p=>photoSources(p.photos).length>0);
    if(sessions.length){
+     // Temporary compatibility for the 8th meeting until the updated GAS API is deployed.
+     if(id==="KAMPUS-008"&&!hasProgramPhotos&&legacyPhotos.length===5){
+       sessions.forEach((p,i)=>{p.photos=i===0?legacyPhotos[0]:i===1?legacyPhotos[1]:i===2?legacyPhotos.slice(2).join("\n"):"";});
+     }
      sessions.forEach(renderSession);
    }else if(item.lecture_title||item.theme){
      renderSession({session_type:"講演",lecture_title:item.lecture_title||item.theme,speaker:item.speaker},0);
@@ -53,7 +81,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
    programSection.hidden=programList.children.length===0;
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
    const photos=Array.isArray(item.photos)?item.photos:String(item.photos||"").split(/\r?\n|,/).map(s=>s.trim()).filter(Boolean);
-   if(photos.length){
+   if(photos.length&&!sessions.some(p=>photoSources(p.photos).length>0)){
     const gallery=document.getElementById("recordPhotos");
     for(const raw of photos){
       if(typeof raw!=="string")continue;
