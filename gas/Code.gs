@@ -8,7 +8,7 @@ const KAMPUS_SPREADSHEET_ID = '1LQVhfnFlMm4Uyn0OtluqpkR39G94ar5Je6VApdpuf-E';
 const KAMPUS_PUBLIC_FIELDS = Object.freeze({
   members: ['sort_order', 'role', 'name', 'affiliation', 'published'],
   sponsors: ['sort_order', 'name', 'image_path', 'url', 'published'],
-  archive_program: ['event_id','sort_order','session_type','lecture_title','speaker','affiliation','chair','notes','published'],
+  archive_program: ['event_id','sort_order','session_type','lecture_title','speaker','affiliation','chair','notes','photos','published'],
   archive: ['sort_order','event_id','number','event_date','title','theme','venue','report','photos','published','event_time','lecture_title','speaker','organizer'],
   seminars: ['sort_order', 'event_id', 'title', 'event_date', 'event_time', 'venue', 'organizer', 'lectures', 'image_path', 'detail_url', 'application_url', 'published', 'announcement', 'poster_path_1', 'poster_path_2']
 });
