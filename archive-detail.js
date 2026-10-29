@@ -151,10 +151,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
      const poster=document.getElementById("recordPoster");
      const fileId="1Hy2wju2zQeAy9V_OA7-oJAd6rpY18uoF";
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.href="./assets/images/archive/kampus-021-flyer.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.src="./assets/images/archive/kampus-021-flyer.png";
      img.alt="第21回 関西血液浄化研究会 開催チラシ";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
@@ -164,10 +164,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
      const poster=document.getElementById("recordPoster");
      const fileId="1T3zk0E0YQEioFgwYDqUDOGYUs0nBLKvn";
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.href="./assets/images/archive/kampus-022-flyer.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.src="./assets/images/archive/kampus-022-flyer.png";
      img.alt="第22回 関西血液浄化研究会 開催チラシ";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
