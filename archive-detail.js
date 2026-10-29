@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
      }
      if(!gallery.childElementCount)return false;
      if(gallery.childElementCount===1)gallery.classList.add("archive-photo-grid--single");
-     if(id==="KAMPUS-011"||id==="KAMPUS-013"||id==="KAMPUS-014")gallery.classList.add("archive-photo-grid--compact");
+     if(id==="KAMPUS-011"||id==="KAMPUS-013"||id==="KAMPUS-014"||id==="KAMPUS-017")gallery.classList.add("archive-photo-grid--compact");
      host.appendChild(gallery);return true;
    }
    function renderSession(p,index){
@@ -106,6 +106,19 @@ document.addEventListener("DOMContentLoaded",async()=>{
        img.loading="lazy";
        link.appendChild(img);poster.appendChild(link);
      });
+     document.getElementById("recordPosterSection").hidden=false;
+   }
+   if(id==="KAMPUS-017"){
+     const poster=document.getElementById("recordPoster");
+     const fileId="1D9Eq_j4Q_QWBu11zlhlf8ueRiEnhiwjn";
+     const link=document.createElement("a");
+     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.target="_blank";link.rel="noopener noreferrer";
+     const img=document.createElement("img");
+     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.alt="第17回 関西血液浄化研究会 開催ポスター";
+     img.loading="lazy";
+     link.appendChild(img);poster.appendChild(link);
      document.getElementById("recordPosterSection").hidden=false;
    }
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
