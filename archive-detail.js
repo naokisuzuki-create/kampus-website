@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
      }
      if(!gallery.childElementCount)return false;
      if(gallery.childElementCount===1)gallery.classList.add("archive-photo-grid--single");
-     if(id==="KAMPUS-011"||id==="KAMPUS-013"||id==="KAMPUS-014")gallery.classList.add("archive-photo-grid--compact");
+     if(id==="KAMPUS-011"||id==="KAMPUS-013"||id==="KAMPUS-014"||id==="KAMPUS-015")gallery.classList.add("archive-photo-grid--compact");
      host.appendChild(gallery);return true;
    }
    function renderSession(p,index){
@@ -90,6 +90,22 @@ document.addEventListener("DOMContentLoaded",async()=>{
      img.alt="第13回 関西血液浄化研究会 開催ポスター";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
+     document.getElementById("recordPosterSection").hidden=false;
+   }
+   if(id==="KAMPUS-015"){
+     const poster=document.getElementById("recordPoster");
+     poster.classList.add("archive-poster--two");
+     const posterIds=["1NMfqLfznWD5FyqVkFCqLqA4uVxWr0Sis","1d53JGZC48MR0T7rqNBE7OC_Ppg3KgbL_"];
+     posterIds.forEach((fileId,index)=>{
+       const link=document.createElement("a");
+       link.href="https://drive.google.com/file/d/"+fileId+"/view";
+       link.target="_blank";link.rel="noopener noreferrer";
+       const img=document.createElement("img");
+       img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+       img.alt="第15回 関西血液浄化研究会 開催ポスター "+(index+1)+"ページ目";
+       img.loading="lazy";
+       link.appendChild(img);poster.appendChild(link);
+     });
      document.getElementById("recordPosterSection").hidden=false;
    }
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
