@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
  const title=document.getElementById("recordTitle");
  const number=document.getElementById("recordNumber");
  const dl=document.getElementById("recordFields");
+ // The sponsor widget loads independently and must not delay the archive.
+ const sponsorsPromise=typeof initializePublicData==="function"
+   ? Promise.resolve().then(()=>initializePublicData()).catch(err=>console.warn("Sponsor widget unavailable",err))
+   : Promise.resolve();
  // Start both independent static requests together instead of serially.
  const programPromise=fetchArchiveProgram();
  try{
@@ -196,5 +200,5 @@ document.addEventListener("DOMContentLoaded",async()=>{
     if(gallery.childElementCount)document.getElementById("recordPhotosSection").hidden=false;
    }
  }catch(err){title.textContent="開催記録を読み込めませんでした。";console.warn(err);}
- finally{const loading=document.getElementById("archiveLoading");if(loading)loading.hidden=true;if(typeof initializePublicData==="function")initializePublicData();}
+ finally{const loading=document.getElementById("archiveLoading");if(loading)loading.hidden=true;}
 });
