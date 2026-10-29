@@ -57,7 +57,7 @@
     "chair": "",
     "notes": "",
     "published": true,
-    "photos": "12AiGn4bdCoh3aNFNvb1QlBU74tpoldDe\n1QlxtzbUkkQap1KTeoktolLdSyEKOUBJl\n1__bdAMwRzcwitsjswIqvCNTp8c69lHb2"
+    "photos": "./assets/images/archive/kampus-007-01.jpg\n./assets/images/archive/kampus-007-02.jpg\n./assets/images/archive/kampus-007-03.jpg"
   },
   {
     "event_id": "KAMPUS-006",
@@ -93,7 +93,7 @@
     "chair": "",
     "notes": "",
     "published": true,
-    "photos": "11Z6WEsaAv8j084qQsrMQ8cH55yLEJ4Xm"
+    "photos": "./assets/images/archive/kampus-004-01.jpg"
   },
   {
     "event_id": "KAMPUS-004",
@@ -105,7 +105,7 @@
     "chair": "鈴木 尚紀 先生（兵庫医科大学病院 臨床工学室）",
     "notes": "",
     "published": true,
-    "photos": "1W6BH8C4_JtrQmgVpG1QiUNQQ5EFx4QKA\n1vE6OpiCZBZJ05IuhqX1hL4SwbphM3G3x"
+    "photos": "./assets/images/archive/kampus-004-02.jpg\n./assets/images/archive/kampus-004-03.jpg"
   },
   {
     "event_id": "KAMPUS-003",
@@ -165,7 +165,7 @@
     "chair": "",
     "notes": "11:15～12:30／共催：ニプロ",
     "published": true,
-    "photos": "1ktqsaKhjh42N-EEjfrQN-1AAPSSKP82i\n16pNj4xse3eFkFwXa-D4IDD1UFax7RvgH"
+    "photos": "./assets/images/archive/kampus-010-01.jpg\n./assets/images/archive/kampus-010-02.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -177,7 +177,7 @@
     "chair": "",
     "notes": "13:00～14:00",
     "published": true,
-    "photos": "1ZzL-RjA07a3wghZf2xZ_29fw87Ulzn7o"
+    "photos": "./assets/images/archive/kampus-010-03.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -189,7 +189,7 @@
     "chair": "",
     "notes": "13:00～14:00",
     "published": true,
-    "photos": "1Xs6Iqtu7LzI9MCGPKUXfA4xL2TbNBcth"
+    "photos": "./assets/images/archive/kampus-010-04.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -201,7 +201,7 @@
     "chair": "",
     "notes": "13:00～14:00",
     "published": true,
-    "photos": "1Sg5XEi3UiKyxiXjYxwXivBeLiwkVX6cY"
+    "photos": "./assets/images/archive/kampus-010-05.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -213,7 +213,7 @@
     "chair": "",
     "notes": "13:00～14:00",
     "published": true,
-    "photos": "11GgAbIg6qzrNR0qwnMAZdpsNKINZZ0IV"
+    "photos": "./assets/images/archive/kampus-010-06.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -225,7 +225,7 @@
     "chair": "",
     "notes": "14:10～15:10",
     "published": true,
-    "photos": "1TlWXlSCmPPr_AVQL6rsjw_M6KMMGHleM"
+    "photos": "./assets/images/archive/kampus-010-07.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -237,7 +237,7 @@
     "chair": "",
     "notes": "14:10～15:10",
     "published": true,
-    "photos": "1cvRcQ60t0IqfqDAPioQY2pqxigVVkamV"
+    "photos": "./assets/images/archive/kampus-010-08.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -249,7 +249,7 @@
     "chair": "",
     "notes": "15:20～16:40／共催：旭化成メディカル",
     "published": true,
-    "photos": "18lGJRTF20wHBsy-D2Q1xPGSZ5zyJVXtc"
+    "photos": "./assets/images/archive/kampus-010-09.jpg"
   },
   {
     "event_id": "KAMPUS-010",
@@ -261,7 +261,7 @@
     "chair": "",
     "notes": "15:20～16:40／共催：Baxter",
     "published": true,
-    "photos": "1pnOq0F8KVFF2RS2C9k0AtQDJyIm1koyv"
+    "photos": "./assets/images/archive/kampus-010-10.jpg"
   },
   {
     "event_id": "KAMPUS-009",
@@ -333,7 +333,7 @@
     "chair": "中村 充輝（奈良県総合医療センター）／中野 智彦（兵庫医科大学病院）",
     "notes": "14:35～15:35／共催：東レメディカル",
     "published": true,
-    "photos": "1e_eZ3fZA_mDW46W4Umz_oehJppUX2BmG"
+    "photos": "./assets/images/archive/kampus-011-01.png"
   },
   {
     "event_id": "KAMPUS-011",
@@ -345,7 +345,7 @@
     "chair": "竹田 圭（近畿大学医学部附属病院）／峰松 佑輔（大阪大学医学部附属病院）",
     "notes": "15:45～16:45／共催：川澄化学工業",
     "published": true,
-    "photos": "1eHKSBH8aVxDsB5bTiLudp_0hZ0bzVAPY\n1eCuduzhr5Nfy_1hlU84S4sF5_AR9kC_3"
+    "photos": "./assets/images/archive/kampus-011-02.png\n./assets/images/archive/kampus-011-03.png"
   },
   {
     "event_id": "KAMPUS-012",
@@ -453,7 +453,7 @@
     "chair": "竹田 圭／中村 充輝",
     "notes": "13:50～14:50",
     "published": true,
-    "photos": "16_wK4GF8T6oIq90d2fDAEL00GZumRgkB"
+    "photos": "./assets/images/archive/kampus-013-01.png"
   },
   {
     "event_id": "KAMPUS-013",
@@ -465,7 +465,7 @@
     "chair": "下村 太郎／人見 奈江",
     "notes": "15:00～15:30",
     "published": true,
-    "photos": "10SqWsTsm_qT6b-xSpoI9MJ5WhqGWokoG\n1uwJOI5SBZM4oyYn0w0MR9BzFBPFkjEK2"
+    "photos": "./assets/images/archive/kampus-013-02.png\n./assets/images/archive/kampus-013-03.png"
   },
   {
     "event_id": "KAMPUS-013",
@@ -489,7 +489,7 @@
     "chair": "",
     "notes": "",
     "published": true,
-    "photos": "1JLGvjsqfMkuuCOaI1zAFWmVMWKsQyY8A\n1DE0vhqLvtMW-0eF7BhMFkG8l1jSiT7fd"
+    "photos": "./assets/images/archive/kampus-014-01.jpg\n./assets/images/archive/kampus-014-02.jpg"
   },
   {
     "event_id": "KAMPUS-014",
@@ -549,7 +549,7 @@
     "chair": "",
     "notes": "共催：バクスター株式会社",
     "published": true,
-    "photos": "1UrjnCIOtpV8pj6DdoYApLlq_stTcr3GE"
+    "photos": "./assets/images/archive/kampus-015-01.png"
   },
   {
     "event_id": "KAMPUS-015",
@@ -561,7 +561,7 @@
     "chair": "",
     "notes": "共催：バクスター株式会社",
     "published": true,
-    "photos": "18xUTXTqtJQSJ924pmtLo_5xDUrzmICZQ"
+    "photos": "./assets/images/archive/kampus-015-02.png"
   },
   {
     "event_id": "KAMPUS-016",
@@ -633,7 +633,7 @@
     "chair": "",
     "notes": "EZRを用いた統計解析の実習",
     "published": true,
-    "photos": "1f7cXxUhFwVF4iY0JydI98tMyiFl6As2c\n1UcqmLIBWJJL7EKvK0284sigAU1ZEq1TY"
+    "photos": "./assets/images/archive/kampus-017-01.jpg\n./assets/images/archive/kampus-017-02.jpg"
   },
   {
     "event_id": "KAMPUS-018",
