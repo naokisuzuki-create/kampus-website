@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded",async()=>{
  const title=document.getElementById("recordTitle");
  const number=document.getElementById("recordNumber");
  const dl=document.getElementById("recordFields");
+ // Start both independent static requests together instead of serially.
+ const programPromise=fetchArchiveProgram();
  try{
    const records=await fetchArchiveRecords();
    const item=records.find(x=>x.event_id===id);
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
    addField("担当幹事",item.organizer);
    const programSection=document.getElementById("archiveProgramSection");
    const programList=document.getElementById("archiveProgramList");
-   const programRows=await fetchArchiveProgram();
+   const programRows=await programPromise;
    const sessions=Array.isArray(programRows)
      ? programRows.filter(p=>p.event_id===id&&(p.published===true||String(p.published).toUpperCase()==="TRUE"))
        .sort((a,b)=>Number(a.sort_order)-Number(b.sort_order))
