@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="関西血液浄化研究会 KaMPUS へのお問い合わせ・講師派遣・共同開催のご依頼">
+<title>お問い合わせ | 関西血液浄化研究会 KaMPUS</title>
+<link rel="stylesheet" href="./seminar-detail-v4-20261015.css">
+<style>
+.contact-hero{background:linear-gradient(110deg,#142b52,#284b79);color:white;padding:40px 0}.contact-hero h1{color:white;margin:10px 0 0;font-size:clamp(27px,4vw,38px)}
+.contact-main{padding:40px 0 70px;background:#f5f7fb}.contact-card{max-width:760px;margin:auto;background:white;padding:clamp(20px,4vw,42px);border:1px solid #dae3ee;border-radius:10px}
+.contact-card p{line-height:1.8}.contact-field{margin:22px 0}.contact-field label{display:block;font-weight:700;margin-bottom:8px;color:#1b365c}
+.contact-field input,.contact-field select,.contact-field textarea{box-sizing:border-box;width:100%;padding:13px;border:1px solid #b8c7d9;border-radius:6px;background:white;font:inherit;color:#172e55}
+.contact-field textarea{min-height:160px;resize:vertical}.required{color:#b12737;font-size:12px}
+.contact-actions{margin-top:25px}.contact-submit{font:inherit;padding:13px 28px;background:#224d89;border:0;border-radius:6px;color:white;font-weight:700;cursor:pointer}
+.contact-submit:disabled{background:#a9b5c5;cursor:not-allowed}.contact-notice{padding:15px;background:#fff6e5;border-left:4px solid #c18a2a;border-radius:4px}
+.contact-status{margin-top:16px;min-height:1.5em}.honeypot{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+</style></head><body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="./index.html"><img class="brand-logo" src="./assets/images/common/kampus-logo-new.png" alt="KaMPUSロゴ" width="62" height="62"><span class="brand-name">関西血液浄化研究会<small>Kansai Meeting of Purification Study</small></span></a><a class="detail-back-nav" href="./index.html">← ホームへ戻る</a></div></header>
+<main id="main"><section class="contact-hero"><div class="container"><p>CONTACT</p><h1>お問い合わせ</h1></div></section>
+<section class="contact-main"><div class="container"><div class="contact-card"><p>関西血液浄化研究会（KaMPUS）へのお問い合わせ、講師派遣、共同開催のご依頼を受け付けます。</p>
+<p class="contact-notice" id="contactNotice">現在、お問い合わせフォームの受付準備中です。送信機能の準備が整うまで、こちらからのお問い合わせはできません。</p>
+<form id="kampusContactForm" novalidate>
+<div class="contact-field"><label for="contactCategory">お問い合わせの種類 <span class="required">必須</span></label><select id="contactCategory" name="category" required><option value="general">当会についてのお問い合わせ</option><option value="seminar">セミナーについてのお問い合わせ</option><option value="speaker">講師派遣のご依頼</option><option value="collaboration">共同開催のご依頼</option><option value="other">その他</option></select></div>
+<div class="contact-field"><label for="contactName">お名前 <span class="required">必須</span></label><input id="contactName" name="name" maxlength="100" autocomplete="name" required></div>
+<div class="contact-field"><label for="contactAffiliation">ご所属</label><input id="contactAffiliation" name="affiliation" maxlength="150" autocomplete="organization"></div>
+<div class="contact-field"><label for="contactEmail">メールアドレス <span class="required">必須</span></label><input id="contactEmail" name="email" type="email" maxlength="254" autocomplete="email" required></div>
+<div class="contact-field"><label for="contactMessage">お問い合わせ内容 <span class="required">必須</span></label><textarea id="contactMessage" name="message" maxlength="5000" required></textarea></div>
+<div class="contact-field"><label><input type="checkbox" id="contactConsent" name="consent" required style="width:auto;margin-right:8px">入力情報をお問い合わせへの回答・対応に利用し、研究会担当者間で共有することに同意します。</label></div>
+<div class="honeypot" aria-hidden="true"><label for="contactWebsite">ウェブサイト</label><input id="contactWebsite" name="website" tabindex="-1" autocomplete="off"></div>
+<div class="contact-actions"><button id="contactSubmit" class="contact-submit" type="submit" disabled>送信する</button></div><p id="contactStatus" class="contact-status" role="status" aria-live="polite"></p>
+</form></div></div></section></main>
+<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><img class="footer-wordmark" src="./assets/images/common/footLogo.png" alt="関西血液浄化研究会" loading="lazy" width="370" height="86"></div><nav class="footer-links" aria-label="フッターメニュー"><a href="./index.html">ホーム</a></nav></div><div class="footer-bottom">Copyright © Kansai Meeting of Purification Study. All rights reserved.</div></footer>
+<script src="./contact.js?v=20261029-1" defer></script></body></html>
