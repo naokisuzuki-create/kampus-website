@@ -1,0 +1,36 @@
+<!doctype html><html lang="ja"><head><base target="_top"><meta charset="utf-8">
+<style>
+*{box-sizing:border-box}body{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#243957;margin:0;background:#f4f7fb}
+main{max-width:740px;margin:24px auto;background:#fff;padding:clamp(20px,4vw,40px);border-radius:10px;border:1px solid #e0e7ef}
+h1{font-size:27px;color:#1b365c}p{line-height:1.7}label{display:block;font-weight:700;margin:18px 0 7px}
+input:not([type=checkbox]),select,textarea{width:100%;font:inherit;padding:11px;border:1px solid #a9bacd;border-radius:5px}
+textarea{height:150px;resize:vertical}button{font:inherit;font-weight:700;background:#214e8c;color:#fff;border:0;border-radius:5px;padding:14px 30px;margin-top:20px}
+button:disabled{opacity:.55}.hidden{position:absolute;left:-9999px}#status{min-height:2em;margin-top:15px}
+</style></head><body><main><h1>お問い合わせ</h1><p>関西血液浄化研究会（KaMPUS）へのお問い合わせ・各種ご依頼を受け付けます。</p>
+<form id="contact">
+<label for="category">お問い合わせの種類 *</label><select id="category" name="category" required>
+<option value="general">当会についてのお問い合わせ</option><option value="seminar">セミナーについてのお問い合わせ</option>
+<option value="speaker">講師派遣のご依頼</option><option value="collaboration">共同開催のご依頼</option>
+<option value="other">その他</option></select>
+<label for="name">お名前 *</label><input id="name" name="name" maxlength="100" required autocomplete="name">
+<label for="affiliation">ご所属</label><input id="affiliation" name="affiliation" maxlength="150" autocomplete="organization">
+<label for="email">メールアドレス *</label><input id="email" name="email" type="email" maxlength="254" required autocomplete="email">
+<label for="message">お問い合わせ内容 *</label><textarea id="message" name="message" maxlength="5000" required></textarea>
+<label><input id="consent" type="checkbox" required> 入力内容をお問い合わせ対応のため研究会担当者間で共有することに同意します。 *</label>
+<div class="hidden" aria-hidden="true"><label for="website">ウェブサイト</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button type="submit" id="submit">送信する</button><p id="status" role="status" aria-live="polite"></p>
+</form></main><script>
+document.getElementById('contact').addEventListener('submit',function(e){
+  e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
+  const button=document.getElementById('submit'),status=document.getElementById('status');
+  button.disabled=true;status.textContent='送信中です…';
+  const payload={category:form.category.value,name:form.name.value,affiliation:form.affiliation.value,
+    email:form.email.value,message:form.message.value,consent:document.getElementById('consent').checked,
+    website:form.website.value};
+  google.script.run.withSuccessHandler(function(result){
+    status.textContent='送信しました。受付番号：'+result.reference;form.reset();button.disabled=false;
+  }).withFailureHandler(function(err){
+    status.textContent='送信できませんでした：'+err.message;button.disabled=false;
+  }).submitContactForm(payload);
+});
+</script></body></html>
