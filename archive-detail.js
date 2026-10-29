@@ -134,6 +134,19 @@ document.addEventListener("DOMContentLoaded",async()=>{
      link.appendChild(img);poster.appendChild(link);
      document.getElementById("recordPosterSection").hidden=false;
    }
+   if(id==="KAMPUS-019"){
+     const poster=document.getElementById("recordPoster");
+     const fileId="1w0UI-cEqBg5gYa8U6HwoWKKhWyLmv1d4";
+     const link=document.createElement("a");
+     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.target="_blank";link.rel="noopener noreferrer";
+     const img=document.createElement("img");
+     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.alt="第19回 関西血液浄化研究会 開催チラシ";
+     img.loading="lazy";
+     link.appendChild(img);poster.appendChild(link);
+     document.getElementById("recordPosterSection").hidden=false;
+   }
    if(item.report){document.getElementById("recordReport").textContent=item.report;document.getElementById("recordReportSection").hidden=false;}
    const photos=Array.isArray(item.photos)?item.photos:String(item.photos||"").split(/\r?\n|,/).map(s=>s.trim()).filter(Boolean);
    if(photos.length&&!sessions.some(p=>photoSources(p.photos).length>0)){
