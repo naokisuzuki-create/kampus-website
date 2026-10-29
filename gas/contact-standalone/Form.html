@@ -24,9 +24,10 @@ document.getElementById('contact').addEventListener('submit',function(e){
   e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
   const button=document.getElementById('submit'),status=document.getElementById('status');
   button.disabled=true;status.textContent='送信中です…';
-  const payload={category:form.category.value,name:form.name.value,affiliation:form.affiliation.value,
-    email:form.email.value,message:form.message.value,consent:document.getElementById('consent').checked,
-    website:form.website.value};
+  const value=id=>document.getElementById(id).value;
+  const payload={category:value('category'),name:value('name'),affiliation:value('affiliation'),
+    email:value('email'),message:value('message'),consent:document.getElementById('consent').checked,
+    website:value('website')};
   google.script.run.withSuccessHandler(function(result){
     status.textContent='送信しました。受付番号：'+result.reference;form.reset();button.disabled=false;
   }).withFailureHandler(function(err){
