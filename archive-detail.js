@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
    if(id==="KAMPUS-013"){
      const poster=document.getElementById("recordPoster");
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/1iwjtTilIwX2-Pu0R2KEijqF-sVGAeYRg/view";
+     link.href="./assets/images/archive/kampus-013-poster.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id=1iwjtTilIwX2-Pu0R2KEijqF-sVGAeYRg&sz=w1200";
+     img.src="./assets/images/archive/kampus-013-poster.png";
      img.alt="第13回 関西血液浄化研究会 開催ポスター";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded",async()=>{
    if(id==="KAMPUS-015"){
      const poster=document.getElementById("recordPoster");
      poster.classList.add("archive-poster--two");
-     const posterIds=["1NMfqLfznWD5FyqVkFCqLqA4uVxWr0Sis","1d53JGZC48MR0T7rqNBE7OC_Ppg3KgbL_"];
+     const posterIds=["./assets/images/archive/kampus-015-1-poster.png","./assets/images/archive/kampus-015-2-poster.png"];
      posterIds.forEach((fileId,index)=>{
        const link=document.createElement("a");
-       link.href="https://drive.google.com/file/d/"+fileId+"/view";
+       link.href=fileId;
        link.target="_blank";link.rel="noopener noreferrer";
        const img=document.createElement("img");
-       img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+       img.src=fileId;
        img.alt="第15回 関西血液浄化研究会 開催ポスター "+(index+1)+"ページ目";
        img.loading="lazy";
        link.appendChild(img);poster.appendChild(link);
@@ -118,10 +118,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
      const poster=document.getElementById("recordPoster");
      const fileId="1D9Eq_j4Q_QWBu11zlhlf8ueRiEnhiwjn";
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.href="./assets/images/archive/kampus-017-poster.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.src="./assets/images/archive/kampus-017-poster.png";
      img.alt="第17回 関西血液浄化研究会 開催ポスター";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
      const poster=document.getElementById("recordPoster");
      const fileId="1YXwhE19fB_a1C0Jjv8W_FTWO9oWdTduF";
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.href="./assets/images/archive/kampus-018-poster.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.src="./assets/images/archive/kampus-018-poster.png";
      img.alt="第18回 関西血液浄化研究会 開催チラシ";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
@@ -144,10 +144,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
      const poster=document.getElementById("recordPoster");
      const fileId="1w0UI-cEqBg5gYa8U6HwoWKKhWyLmv1d4";
      const link=document.createElement("a");
-     link.href="https://drive.google.com/file/d/"+fileId+"/view";
+     link.href="./assets/images/archive/kampus-019-poster.png";
      link.target="_blank";link.rel="noopener noreferrer";
      const img=document.createElement("img");
-     img.src="https://drive.google.com/thumbnail?id="+fileId+"&sz=w1200";
+     img.src="./assets/images/archive/kampus-019-poster.png";
      img.alt="第19回 関西血液浄化研究会 開催チラシ";
      img.loading="lazy";
      link.appendChild(img);poster.appendChild(link);
