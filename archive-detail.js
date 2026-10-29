@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
      }
      if(!gallery.childElementCount)return false;
      if(gallery.childElementCount===1)gallery.classList.add("archive-photo-grid--single");
-     if(id==="KAMPUS-011"||id==="KAMPUS-013")gallery.classList.add("archive-photo-grid--compact");
+     if(id==="KAMPUS-011"||id==="KAMPUS-013"||id==="KAMPUS-014")gallery.classList.add("archive-photo-grid--compact");
      host.appendChild(gallery);return true;
    }
    function renderSession(p,index){
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
    const photos=Array.isArray(item.photos)?item.photos:String(item.photos||"").split(/\r?\n|,/).map(s=>s.trim()).filter(Boolean);
    if(photos.length&&!sessions.some(p=>photoSources(p.photos).length>0)){
     const gallery=document.getElementById("recordPhotos");
-    if(id==="KAMPUS-013")gallery.classList.add("archive-photo-grid","archive-photo-grid--compact");
+    if(id==="KAMPUS-013"||id==="KAMPUS-014")gallery.classList.add("archive-photo-grid","archive-photo-grid--compact");
     for(const raw of photos){
       if(typeof raw!=="string")continue;
       const src=raw.trim();
