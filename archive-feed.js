@@ -2,6 +2,13 @@
 const ARCHIVE_API="https://script.google.com/macros/s/AKfycbyKA3zrmXWZnPaldCDmvW6ElmExiBX5HKRtzzLsJOvTI4OzR3ObaBvHXNy2jf3fJgHT/exec";
 async function fetchArchiveRecords(){
  try{
+  const res=await fetch("./data/archive-records-full.json");
+  if(res.ok){
+   const rows=await res.json();
+   if(Array.isArray(rows)&&rows.length>=20)return rows.filter(x=>x.published===true||String(x.published).toUpperCase()==="TRUE").sort((a,b)=>Number(b.sort_order||0)-Number(a.sort_order||0));
+  }
+ }catch(err){console.warn("Static archive unavailable; using live API",err);}
+ try{
   const rows=await new Promise((resolve,reject)=>{
    const tag=document.createElement("script");let done=false;const previous=window.kampusDataCallback;
    const timeout=setTimeout(()=>finish(new Error("archive API timed out")),8000);
@@ -20,6 +27,13 @@ async function fetchArchiveRecords(){
 
 // Fetch one program table after the archive metadata request has completed.
 async function fetchArchiveProgram(){
+ try{
+  const res=await fetch("./data/archive-program-full.json");
+  if(res.ok){
+   const rows=await res.json();
+   if(Array.isArray(rows)&&rows.length>=60)return rows;
+  }
+ }catch(err){console.warn("Static program unavailable; using live API",err);}
  try{
   return await new Promise((resolve,reject)=>{
    const tag=document.createElement("script");let done=false;
